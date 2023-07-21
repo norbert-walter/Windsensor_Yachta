@@ -45,22 +45,17 @@ If you like to help or consider this project useful, please donate. Thanks for y
 * Supporting  NMEA 0183 protocol
 * Firmware update via Internet
 
+## Create your own code
+
+You have the option of creating your own code using the online [software development environment Gitpod](https://gitpod.io/#https://github.com/norbert-walter/Windsensor_Yachta). Follow this link and a finished development environment similar to PlatformIO will be created that runs in your browser with all code components. To compile the software, enter ***bash run*** in the terminal. In the workspace you will find the compiled binary code under ***.pio/build/d1_mini/firmware.bin***. With a right click you can download the binary file.
+
+## Device flash process
+
+With the [Web Flash Tool](https://norbert-walter.github.io/Windsensor_Yachta/flash_tool/esp_flash_tool.html) you can very easily flash the device with the firmware from the web browser. You need a Chrome or Edge browser and a USB connection cable. If the device is connected to the USB port of the computer, the serial connection can be selected and the flash process can then be started.
+
 ## Firmware characteristics
 
-**Udo Firmware**
-* Web configuration for IP settings port 80
-* UDP port 2948
-* UDP NMEA0183 telegram MWV
-
-**Jukolein Firmware**
-* Web configuration and grafical visualisation
-* Webserver port 80
-* UDP port 8080
-* TCP port 8080
-* UDP/TCP NMEA0183 telegram MWV
-* Firmware update OTA via Arduino IDE
-
-**Wifi 1000 Firmware**
+**Wind Sensor Yachta Firmware**
 * Web configuration and graphical visualisation
 * Webserver port 80
 * TCP port 6666
