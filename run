@@ -9,7 +9,7 @@
 # Start the script with: bash run
 
 # Path definitions
-projectpath="./.pio/build/heltec_wifi_lora_32_V2"
+projectpath="./.pio/build/d1_mini"
 toolpath="./docs/flash_tool"
 
 # Install tools
@@ -23,10 +23,5 @@ platformio run
 
 # Copy all bin files in docs folder for online flash tool
 echo "Copy bin files"
-cp $projectpath/bootloader.bin $toolpath/bootloader.bin
-cp $projectpath/partitions.bin $toolpath/partitions.bin
 cp $projectpath/firmware.bin $toolpath/firmware.bin
-
-# Merge all bin files to one merge file
-echo "Merge all bin files"
-esptool.py --chip ESP32 merge_bin -o $toolpath/merged-firmware.bin --flash_mode dio --flash_size 4MB 0x1000 $toolpath/bootloader.bin 0x8000 $toolpath/partitions.bin 0x10000 $toolpath/firmware.bin
+echo "Successfully executed"

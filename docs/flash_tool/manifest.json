@@ -1,14 +1,12 @@
 {
-    "name": "LoRa Boat Monitor Firmware",
-    "version": "V1.05",
+    "name": "Windsensor Yachta Firmware",
+    "version": "V1.18",
     "new_install_prompt_erase": false,
     "builds": [
       {
-        "chipFamily": "ESP32",
+        "chipFamily": "ESP8266",
         "parts": [
-          { "path": "https://norbert-walter.github.io/LoRa-Boat-Monitor/flash_tool/bootloader.bin", "offset": 4096 },
-          { "path": "https://norbert-walter.github.io/LoRa-Boat-Monitor/flash_tool/partitions.bin", "offset": 32768 },
-          { "path": "https://norbert-walter.github.io/LoRa-Boat-Monitor/flash_tool/firmware.bin", "offset": 65536 }
+          { "path": "firmware.bin", "offset": 0 }
         ]
       }
     ]
