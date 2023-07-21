@@ -1,0 +1,22 @@
+The license are splitted in several licenses.
+
+1. GPLv3 license only for software
+    * Arduino Source Code (*.ino)
+    
+2. CC-BY-NC-ND only for binary files
+    * Arduino binary files (*.bin)
+    
+3. CC-BY-NC-SA license for follwoing parts
+    * Schematics
+    * Board files
+    * Part lists
+    * 3D/2D CAD files
+    * Documentation
+    * Pictures
+    * Simulation files
+    
+4. Other license
+    * External Documents
+    * Data Sheeds
+    * Patents
+    * External Pictures

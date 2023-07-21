@@ -1,0 +1,1 @@
+https://norbert-walter.github.io/LoRa-Boat-Monitor/public/firmware/firmware_V1.06.bmb

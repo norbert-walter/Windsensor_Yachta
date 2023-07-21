@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LoRa Boat Monitor</title>
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://norbert-walter.github.io/LoRa-Boat-Monitor/public/style.css">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<style>table,th, td {padding: 5px;}</style>
+</head>
+<body>
+<h2>LoRa Boat Monitor</h2>NoWa (C) 2021, V1.06
+<hr align="left">
+<h2>LoRa Boat Monitor Documentation</h2>
+For proper operation the LoRa boat monitor requires a web browser with HTML5, JavaScript and Canvas, as supported by all actual browsers. Please check  browser security settings in case of malfuntions.
+<h2>Main Page</h2>
+The main page provides buttons to access sub pages serving different purposes. The status bar displays copyright, version number and WLAN connection quality in percent.
+<br><br><img src="pictures_V1.06/Main.png" alt="Main Page">
+<h3>Sensor Value</h3>
+This page shows all readings from the sensors. Depending on which sensors are active, the number of measured values displayed may vary.
+<br><br><img src="pictures_V1.06/Sensor_Value_1.png" alt="Sensor Values">
+
+<h4>Environment</h4>
+This shows all values from BME280 environment sensor.
+<br><br><b>Temp:</b> Air temperature in °C or K
+<br><br><b>Press:</b> Air pressure in mbar
+<br><br><b>Hum:</b> Air humidity in %
+<br><br><b>Dew:</b> Dewpoint in °C or K
+
+<h4>Position Speed Course</h4>
+<b>Lat:</b> Latitude geographic position
+<br><br><b>Lon:</b> Longitude geographic position
+<br><br><b>Alt:</b> Altitude on geographic position
+<br><br><b>Spd:</b> Speed in kn
+<br><br><b>Crs:</b> Course in degree
+
+<br><br><img src="pictures_V1.06/Sensor_Value_2.png" alt="Sensor Values">
+
+<h4>Date Time Daylight</h4>
+<b>Date:</b> Date of day
+<br><br><b>Time:</b> Actual time
+<br><br><b>Sunrise:</b> Sunrise of day
+<br><br><b>Sunset:</b> Sunset of day
+
+<h4>Battery</h4>
+<b>Volt:</b> Actual voltage in V
+<br><br><b>Cap:</b> Current level of the battery
+<br><br><b>Temp:</b> Battery temperature measured with a 1Wire sensor DS18B120
+
+<h4>Levels</h4>
+Tank levels of water and fuel measured with a 180 ohm level sensor.
+<br><br><b>Water:</b> Water level in %
+<br><br><b>Fuel:</b> Fuel level in %
+
+<br><br><img src="pictures_V1.06/Sensor_Value_3.png" alt="Sensor Values">
+
+<h4>Control</h4>
+<b>Alarm:</b> Status alarm input on/off
+<br><br><b>Relay:</b> Status relay input on/off
+<br><br><b>OnTime:</b> Duration of switching on
+
+
+<h2>LoRa Info</h2>
+This screen displays actual LoRa values.
+<br><br><img src="pictures_V1.06/LoRa_Info.png" alt="LoRa Info">
+
+<h4>LoRa Info</h4>
+<b>Freq Region:</b> Frequency region in which LoRa is used. Depending on the geographical region, different frequencies and transmission schemes are used.
+<br><br><b>Device Addr:</b> Device address of the LoRa boat monitor.
+<br><br><b>Actual Chan:</b> Actual used LoRa channel (1...8)
+<br><br><b>Actual SF:</b> Actual used spreading factor for LoRa signal (7...12)
+<br><br><b>TX Interval:</b> Transmit interval for LoRa telegrams in s
+<br><br><b>Time Slot:</b> The transmission of LoRa telegrams is divided into 12 time slots. The time slot in which the transmission is currently active is displayed here. Depending on the operating mode, different spreading factors are used for each time slot.
+<br><br><b>TX Counter:</b> Transmission counter since the start of the LoRa boat monitor. This counter is transmitted to the LoRa network. This can be used to detect whether telegrams have been lost. After a device restart, the counter is reset.
+
+
+<h2>Device Info</h2>
+This screen provides an overview of all relevant LoRa boat monitor data grouped in different sections.
+<br><br><img src="pictures_V1.06/Device_Info_1.png" alt="Device Info">
+<br>
+
+<h4>Firmware Information</h4>
+<b>Firmware Version</b> Version of ESP32 real time kernel.
+<br><br><b>License Type</b> GPL3.
+<h4>ESP32 Informations:</h4>
+<b>SDK Version:</b> Version of software development kit used to build the ESP32 real time kernel.
+<br><br><b>ESP32 Chip ID:</b> Unique ID equivalent to a serial number.
+<br><br><b>ESP32 Speed:</b> Current CPU speed.
+<br><br><b>Free Heap Size:</b> Internal free memory (RAM) available for dynamic values and variables. In case of problems please check free heap size.
+
+<br><br><img src="pictures_V1.06/Device_Info_2.png" alt="Device Info">
+<br>
+
+<h4>Network Parameter</h4>
+<b>Hostname:</b> Hostname of the LoRa boat monitor. The hostname is a combination from name boat monitor and Sensor ID. You can using this name in the following URL: http://boatmonitor-0 for a device with the Sensor ID 0. If you using more than one device then select for each device a different Sensor ID (reffer Device Setings).
+<br><br><b>mDNS Name:</b> Multicast DNS name. You find the LoRa boat monitor with this name in the local network. You don't need a IP address. The multicast DNS name is usable if the mDNS service is activated (refer Device Settings).
+<br><br><b>WLAN Server SSID:</b> SSID of WLAN run by the Windserver.
+<br><br><b>WLAN Server IP:</b> IP-adress of WLAN server run by the Windsensor.
+<br><br><b>Activ AP Channel:</b> Actual used Access Point channel.
+<br><br><b>WLAN Client SSID:</b> Client SSID of WLAN the Windsensor is connected to.
+<br><br><b>WLAN Client IP:</b> Client IP adress in WLAN the Windsensor is connected to.
+<br><br><b>Client Field Strength:</b> WLAN field strength in dBm. It indicates wireless connection quality.
+<br><br><b>Connection Quality:</b> Quality value in percent for the wireless connection.
+
+<h4>LoRa Parameter</h4>
+<b>Device Address:</b> Device address of the LoRa boat monitor.
+<br><br><b>Actual Channel:</b> Actual used LoRa channel (1...8)
+<br><br><b>Actual SF:</b> Actual used spreading factor for LoRa signal (7...12)
+<br><br><b>TX Interval:</b> Transmit interval for LoRa telegrams in s
+<br><br><b>Time Slot:</b> The transmission of LoRa telegrams is divided into 12 time slots. The time slot in which the transmission is currently active is displayed here. Depending on the operating mode, different spreading factors are used for each time slot.
+<br><br><b>TX Counter:</b> Transmission counter since the start of the LoRa boat monitor.
+
+<br><br><img src="pictures_V1.06/Device_Info_3.png" alt="Device Info">
+<br>
+
+<h4>Device Information</h4>
+<b>Latitude:</b> Latitude geographic position
+<br><br><b>Longitude:</b> Longitude geographic position
+<br><br><b>Altitude:</b> Altitude on geographic position
+<br><br><b>Air Temperature:</b> Air temperature in °C or K
+<br><br><b>Air Pressure:</b> Air pressure in mbar
+<br><br><b>Air Humidity:</b> Air humidity in %
+<br><br><b>Dewpoint:</b> Dewpoint in °C or K
+<br><br><b>Battery Voltage:</b> Actual battery voltage in V
+<br><br><b>1Wire Temp:</b> Temperature measured with a 1Wire sensor DS18B120
+<br><br><b>Tank 1:</b> Level sensor for tank 1 as raw value in V 
+<br><br><b>Tank 2:</b> Level sensor for tank 2 as raw value in V 
+<br><br><b>Alarm:</b> Status alarm input on/off
+<br><br><b>Relay:</b> Status relay input on/off
+<br><br><b>Relay Timer:</b> Duration of switching on
+<br><br><b>Env Sensor:</b> Type of environment sensor
+
+
+<h2>Device Settings</h2>
+<b>Attention:<br>
+This screen holds passwords - it is advised not to call this page while connected to public networks. Password transmission may not be safe in a public environment.</b>
+<br><br>This page permits changes to the LoRa boat monitor settings.
+<br><br><img src="pictures_V1.06/Device_Settings_1.png" alt="Device Settings">
+
+<h4>Password Settings</h4>
+<b>Use Page Pasword:</b> Allows secure access via password to the web pages Device Settings, Firmware Update and Restart Device.
+<br><br><b>Page Password:</b> Password to access the secure web pages.
+<br><br> A password must be entered when accessing the secured pages. Only upper and lower case letters and numbers may be used. Special characters are not allowed. The password must consist of 8 to 20 characters.
+
+<h4>Display Settings</h4>
+<b>Instrument Size:</b> Change the size of instrument for optimal viewing on the browser in use. The setting applies to all devices connected. Unfortunately individual layout per display unit is not possible due to ESP restrictions.
+
+<br><br><img src="pictures_V1.06/Device_Settings_2.png" alt="Device Settings">
+<h4>Network Settings</h4>
+<b>WLAN Client SSID:</b> SSID of the external network used by the sensor to transmit raw data to OpenPlotter or other data servers.
+<br><br><b>WLAN Client Password:</b> Password to access the external network used by the sensor to transmit raw data to data servers (e.g. OpenPlotter).
+<br><br><b>Connection Timeout:</b> The wind sensor tries to establish a client connection until the timeout has expired. Notice: If no connection has been established, the web interface can only be reached after the timeout has expired. The timeout is useful when OpenPlotter and the wind sensor are switched on at the same time. The wind sensor starts faster and then tries to connect until the timeout expires. If the timeout is longer than the OpenPlotter's boot phase, the wind sensor can automatically log into the OpenPlotter's WLAN after switching on.
+<br><br><b>WLAN Server SSID:</b> SSID of the wireless network created by the windsensor to provide the web interface. You can use a mobile phone or tablet to display wind data.
+<br><br><b>WLAN Server Password:</b> Password of the wireless network created by the windsensor to provide the web interface.
+<br><br><b>AP Channel:</b> Access Point channel for WiFi network. Attention! The WiFi channel can only be freely set if the device is not connected to another WiFi network (e.g. OpenPlotter) .If the wind sensor is connected to another WiFi network, its channel is used.
+<br><br><b>Server Mode:</b>
+<b>'HTTP (JSON/NMEA)' </b>is the default value. The LoRa boat monitor provides a web interface with data formatted as JSON. This mode may also be used for other applications accepting JSON. In the same mode is it possible to transmit NMEA0183 data to applications like OpenPlotter on Port 6666. In this case the LoRa  boat monitor serves as data server with OpenPlotter being the client.
+With <b>'NMEA Serial'</b> you can setup a RS232 serial connection for NMEA0183 data transmission by wired cable. The mode supports also a serial debug mode for hardware debugging. In this case select and change the settings in <b>Serial Debug Mode</b>.
+<b>'MQTT'</b> Is reserved for future functions to connect to an MQTT server. Currently the function is not implemented.
+<b>'Diagnostic'</b> The diagnostic mode is unused.
+<br><br><b>nDNS Service:</b> Activate the mDNS service for the local network. The LoRa boat monitor supports a hostname (e.g. boatmonitor-0.local). You can connect the device with this name in the local network. The mDNS service supports also different network services for HTTP and NMEA0183 connections. In the navigation software AVnav you can very easy directly connect the wind sensor without any IP and port declaration as Zero-Config.
+
+
+<br><br><img src="pictures_V1.06/Device_Settings_3.png" alt="Device Settings">
+<h4>LoRa Settings (ABP)</h4>
+<b>Device Address:</b> Device address of the LoRa boat monitor. The device address consists of 8 characters and must not be confused with the device EUI.
+<br><br><b>Network Session Key:</b> Network session key for LoRa TTN V3 network. The key consists of 32 characters.
+<br><br><b>Application Key:</b> Application key for LoRa TTN V3 network. The key consists of 32 characters.
+<br><br><b>Freq Region:</b> Frequency region in which LoRa is used. Depending on the geographical region, different frequencies and transmission schemes are used. Currently only the European region EU868 with 868 MHz transmission and reception frequency range is used.
+<br><br><b>LoRa Channel:</b> LoRa channel selction (1...8) without or with dynamic channel hopping.
+<br><br><b>Spreading Factor:</b> Spreading factor selection for LoRa signal (7...10).
+<br><br><b>Dynamic SF:</b> Selection for dynamic spreading factor hopping. For more details see: <a href="https://open-boat-projects.org/en/lora-bootsmonitor/">GitHub repository</a>
+<br><br><b>TX Interval:</b> Transmit interval for LoRa telegrams as mutible of 30s.
+<br><br><b>Relay:</b> Manual opreation of relay.
+
+<br><br><img src="pictures_V1.06/Device_Settings_4.png" alt="Device Settings">
+<h4>Device Settings</h4>
+
+<b>Serial Debug Mode:</b> The Serial Debug Mode supports hardware debugging. You can monitor and control all Windsensor functions over a serial RS232 connection (RX,TX,GND). The output signal level is set to 3.3V TTL. Use a level shifter TTL/RS232-USB to connect with a PC. On PC side you can use a terminal program to display all ASCII debug information.
+<br><br><b>Serial Speed:</b> Serial Speed determines the RS232 line speed.
+<br><br><b>Sensor ID:</b> Unique ID of the LoRa boat monitor when multiple sensors are installed.
+<br><br><b>Device Type:</b> Describes the type of LoRa boat monitor device. At present just LoRa1000 is available. Future versions may provide different sensors.
+<br><br><b>Send LoRa:</b> Setting this value to 'true' enables LoRa data transmission. When set to 'false' data transmission will be stopped.
+<br><br><b>Send NMEA0183:</b> If enabled then send LoRa boat monitor data as NMEA0183 telegrams.
+<br><br><b>Average Volatge:</b> Factor for moving average calculation. Higher factors smoothen wind angle and speed values. Decrease the factor for more reactive values.
+<br><br><b>Average Tank1:</b> Factor for moving average calculation. Higher factors smoothen wind angle and speed values. Decrease the factor for more reactive values.
+<br><br><b>Average Tank2:</b> Factor for moving average calculation. Higher factors smoothen wind angle and speed values. Decrease the factor for more reactive values.
+<br><br><b>Temp Sensor Type:</b> Temperature sensor type. Actual only supports the DS18B20. In future applications we consider providing other sensors.
+<br><br><b>Temp Unit:</b> The selected unit will be used to display temperature.
+<br><br><b>Env Sensor Type:</b> Environment sensor type. Actual supports BME280, VEdirect_Read, VEdirect_Write. With VEdirect the device can read and write VE.direct data from Victron. If VEdirect_Write is activated, the device behaves like a Victron battery monitor BMV-712 smart. All data read from VE.direct is also exported via NMEA0183.
+
+
+
+<br><br><img src="pictures_V1.06/Device_Settings_5.png" alt="Device Settings">
+<h4>Calibration Settings</h4>
+If necessary, the measured values can be calibrated with the following free parameters to improve the measurement accuracy. The following correction function is used for this: y=A2*x*x+A1*x+Offset. A2=0.0, A1=1.0 and Offset=0.0 must be set for a calibration. The measurement data are then recorded simultaneously with a reference measuring device and entered in an Excel chart. The measurement data are provided with a linear or quadratic fit. The fit parameters are then the correction data for A2, A1 and the offset. The horizontal axis contains the uncorrected readings and the vertical axis contains the corrected readings.
+<br><br><img src="pictures_V1.06/Excel.png" alt="Calibration curv with fit">
+<br>Fig.: Sample for a linear fit (A2=0.0, A1=0,8413, Offset=1,1786)
+<br><br><b>Voltage A2:</b> Calibration slope is a second factor for a quadratic fit. Set A2=0.0 for a linear fit. The default value is 0.0.
+<br><br><b>Voltage A1:</b> Calibration slope is a first factor for a linear fit with which the measured values can be increased or decreased. The default value is 0.02861.
+<br><br><b>Voltage Offset:</b> Calibration Offset is a fixed value which is added to the measurement data. The default value is 6.47301.
+<br><br><b>Tank1 A2:</b> Calibration slope is a second factor for a quadratic fit. Set A2=0.0 for a linear fit. The default value is 0.0.
+<br><br><b>Tank1 A1:</b> Calibration slope is a first factor for a linear fit with which the measured values can be increased or decreased. The default value is 143.19740.
+<br><br><b>Tank1 Offset:</b> Calibration Offset is a fixed value which is added to the measurement data. The default value is 0.0.
+<br><br><b>Tank2 A2:</b> Calibration slope is a second factor for a quadratic fit. Set A2=0.0 for a linear fit. The default value is 0.0.
+<br><br><b>Tank2 A1:</b> Calibration slope is a first factor for a linear fit with which the measured values can be increased or decreased. The default value is 143.19740.
+<br><br><b>Tank2 Offset:</b> Calibration Offset is a fixed value which is added to the measurement data. The default value is 0.0.
+
+
+<h2>Firmware Update</h2>
+This page allows updating the LoRa boat monitor firmware in two variants. The latest actual firmware is displayed. Download the latest firmware and save it. Then select the new firmware file and click button 'Update Firmware'. Please be careful to enter the right filename extension (<b>bmb</b>) for firmware update. Success status will be displayed upon completion. OK indicates a successful update. Otherwise an error information will be shown.
+<b>Caution! By loading an incorrect or corrupted file the LoRa boat monitor will not work and may require a manufacturer service.</b> The device reboot automatically after successful firmware update.
+<br><br><img src="pictures_V1.06/Firmware_Update.png" alt="Firmware Update">
+<h3>Restart Device</h3>
+Allows the wind sensor to be restarted. Then you get to the start page.
+
+
+<br><br><img src="pictures_V1.06/Restart_Device.png" alt="Restart Device">
+<h2>Style</h2>
+You can toggle between three page styles. Click the button again to change to the next style. Beware that all changes will apply to all displays connected.
+<br><br><img src="pictures_V1.06/Style_1.png" alt="Dark Style">
+<br><br><img src="pictures_V1.06/Style_2.png" alt="Withe Style">
+<br><br><img src="pictures_V1.06/Style_3.png" alt="Night Style">
+
+<h2>System Help</h2>
+Displays this help text. If you require more information, please refer to the project page on GitHub.
+<br><br><a href="https://github.com/norbert-walter/LoRa-Boat-Monitor">LoRa Boat Monitor</a>
+
+<h2>Thanks Note</h2>
+<table>
+<tr>
+
+<td><b>Michael Satzinger</b></td>
+<td></td>
+<td>For software testing and translation support</td>
+</tr>
+<tr>
+<td><b>Gerrit Grunwald</b></td>
+<td></td>
+<td>For the nice canvas steelseries instrument library</td>
+</tr>
+<tr>
+<td><b>GitHub Team</b></td>
+<td></td>
+<td>For the project hosting platform and for hosting of software parts</td>
+</tr>
+</table>
+<h3>Donation</h3>
+If you want to help or you consider this project as useful, please donate. Thanks for your support!
+<br><br>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="5QZJZBM252F2L" />
+<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+</form>
+<br>
+<hr align="left">
+<br>
+<form action='http://192.168.4.1'><button type='submit'>Back</button></form>
+</body>
+</html>
