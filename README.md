@@ -1,12 +1,12 @@
 ## Windsensor Yachta
 
-![Windsnesor Yachta](Pictures/Yachta_Windsensor.jpg)
+![Windsnesor Yachta](project/pictures/Yachta_Windsensor.jpg)
 
 Image: Wind Sensor Yachta
 
 The initial idea for the Yachta wind sensor is based on a work by the user Yachta. He presented and published the wind sensor on [Thingiverse](https://www.thingiverse.com/thing:2261719). Udo took up the idea of ​​Yachta and modified the mechanics a little. The arms of the cup wheel have been separated. This makes 3D printing easier to implement. The electronics were completely redesigned by him. The microcontroller was removed and replaced with an ESP8266. A DC/DC converter module was installed so that the wind sensor can also be operated at 12V. The circuit board was created with the Windows software Sprint Layout and converted into Gerber files. Now is a new BCP available from Norbert.
 
-![Windsnesor Yachta](Pictures/Top_3D_Yachta.png)
+![Windsnesor Yachta](project/pictures/Top_3D_Yachta.png)
 
 Image: PCB board
 
@@ -22,7 +22,7 @@ A lively exchange of experiences takes place in the German-speaking [sailing for
 
 If you like to help or consider this project useful, please donate. Thanks for your support!
 
-[![Donate](Pictures/Donate.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5QZJZBM252F2L)
+[![Donate](project/pictures/Donate.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5QZJZBM252F2L)
 
 ## Technical characteristics
 
@@ -68,15 +68,15 @@ With the [Web Flash Tool](https://norbert-walter.github.io/Windsensor_Yachta/fla
 
 I use the windsensor in combination with [OpenPlotter](http://www.sailoog.com/openplotter) on a Raspberry Pi 3B. OpenPlotter serves as access point for WiFi devices. The windsensor connects to OpenPlotter via WiFi and transmits the NMEA0183 data telegrams every second. The windsensor sends NMEA0183 telegrams. Check here [link](http://www.nmea.de/nmea0183datensaetze.html) for more information. 
 
-![Connectivity](Pictures/Windsensor_Raspi_Handy_Laptop_M5Stack.png)
+![Connectivity](project/pictures/Windsensor_Raspi_Handy_Laptop_M5Stack.png)
 
 Img: Connection options
 
 Now also available as Android App. It is is a WebApp connecting directly to the windsensor to display all data.
 
-![Android App](Pictures/AppStart.png)
-![Android App](Pictures/AppInstrument1.png)
-![Android App](Pictures/AppInstrument2.png)
+![Android App](project/pictures/AppStart.png)
+![Android App](project/pictures/AppInstrument1.png)
+![Android App](project/pictures/AppInstrument2.png)
 
 Img: Android App for Wifi 1000 firmware
 
