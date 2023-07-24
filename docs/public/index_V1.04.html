@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Windsensor WiFi 1000</title>
+<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://norbertwalter67.gitlab.io/plain-html/style.css">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<style>table,th, td {padding: 5px;}</style>
+</head>
+<body>
+<h2>Windsensor WiFi 1000</h2>NoWa (C) 2019, V1.04
+<hr align="left">
+<h3>Windsensor Documentation</h3>
+For proper operation the Windsensor requires a web browser with HTML5, JavaScript and Canvas, as supported by all actual browsers. Please check  browser security settings in case of malfuntions.
+<h3>Main Page</h3>
+The main page provides buttons to access sub pages serving different purposes. The status bar displays copyright, version number and WLAN connection quality in percent.
+<br><br><img src="public/pictures_V1.04/Main.png" alt="Main Page">
+<h3>Wind Instrument</h3>
+This page displays the simple Windsensor instrument type with a wind direction pointer. Inside the circle live values are shown. To change windspeed unit and down wind area (gray bottom area) refer to the Device Settings page. The user may choose between two instrument layouts (see Settings). Both instrument designs are stored in the device's memory.
+<br><br><img src="public/pictures_V1.04/Instrument1.png" alt="Wind Instrument">
+<br><br>The complex wind sensor instrument type for relative winds with a beautified surface looks like this:
+<br><br><img src="public/pictures_V1.04/Instrument2.png" alt="Complex Wind Instrument Picture">
+
+<br><br>For true winds change the design of instrument:
+<br><br><img src="public/pictures_V1.04/Instrument3.png" alt="Complex Wind Instrument Picture">
+
+<h3>Wind Values</h3>
+This screen displays apparent wind angle (AWA) and apparent windspeed values (AWS).
+<br><br><img src="public/pictures_V1.04/Value.png" alt="Wind Values">
+<h3>Device Info</h3>
+This screen provides an overview of all relevant Windsensor's data grouped in different sections.
+<br><br><img src="public/pictures_V1.04/Info1.png" alt="Info Page">
+<br><br><img src="public/pictures_V1.04/Info2.png" alt="Info Page">
+<br>
+<h4>Firmware Information</h4>
+<b>Firmware Version</b> Version of ESP8266 real time kernel.
+<br><br><b>License Type</b> CC-BY-NC-ND.
+<h4>ESP8266 Informations:</h4>
+<b>SDK Version:</b> Version of software development kit used to build the ESP8266 real time kernel.
+<br><br><b>ESP8266 Chip ID:</b> Unique ID equivalent to a serial number.
+<br><br><b>ESP8266 Speed:</b> Current CPU speed.
+<br><br><b>Free Heap Size:</b> Internal free memory (RAM) available for dynamic values and variables. In case of problems please check free heap size.
+<h4>Network Parameter:</h4>
+<b>WLAN Server SSID:</b> SSID of WLAN run by the Windserver.
+<br><br><b>WLAN Server IP:</b> IP-adress of WLAN server run by the Windsensor.
+<br><br><b>WLAN Client SSID:</b> Client SSID of WLAN the Windsensor is connected to.
+<br><br><b>WLAN Client IP:</b> Client IP adress in WLAN the Windsensor is connected to.
+<br><br><b>Client Field Strength:</b> WLAN field strength in dBm. It indicates wireless connection quality.
+<br><br><b>Connection Quality:</b> Quality value in percent for the wireless connection.
+<h4>Device Information:</h4>
+<b>Device Temperature:</b> Internal device temperature.
+<br><br><b>Wind Direction:</b> Apparent wind angle (relative to the bow - AWA).
+<br><br><b>Resolution Wind Direction:</b> Current wind direction resolution. Resolution depends on windspeed. A higher windspeed will enhance resolution. Please refer to the user manual for details.
+<br><br><b>Wind Speed:</b> Apparent windspeed (relative to the boat - AWS).
+<br><br><b>Down Wind Speed:</b> Virtual Windsensor for down windspeed. For more details please refer to 'Device Settings'.
+<br><br><b>Sensor 1 (Speed):</b> Actual output status of Hall sensor 1.
+<br><br><b>Sensor 2 (Direction):</b> Actual output status of Hall sensor 2.
+<br><br><b>Pulse Counter:</b> Count the number of pulse per revolution for the wind direction sensor. This is helpfully to control the correct Hall sensor and metal shield function. With rotating wind wheel the pulse counter must be constant at 1. If the value is greater than 1, the aperture does not switch correctly and the magnet may have to be readjusted. If the value is 0, the sensor does not switch or the wind wheel does not turn. The pulse counter is a good indicator for checking the correct sensor function. For additional tests the diagnostic mode can be activated. Then a more detailed graphical diagnosis with a software oscilloscope can be made with an external diagnosis tool (see also Diagnosis Mode).
+<br><br><b>Time 1 (Speed):</b> Time measured per rotation of Hall sensor 1.
+<br><br><b>Time 2 (Direction):</b> Time measured between Hall sensor 1 and Hall sensor 2.
+<br><br><b>Rotation Speed:</b> Rotation speed of anemometer wheel.
+<h4>Device Settings</h4>
+<b>Attention:<br>
+This screen holds passwords - it is advised not to call this page while connected to public networks. Password transmission may not be safe in a public environment.</b>
+<br><br>This page permits changes to the Windsensor's settings.
+<br><br><img src="public/pictures_V1.04/Settings1.png" alt="Settings 1">
+<br><br><img src="public/pictures_V1.04/Settings2.png" alt="Settings 2">
+<br>
+<br><br><b>Instrument Type:</b> Two types of instruments are available. The 'simple' type displays a lightweight grafic instrument, the 'complex' type emulates the look of a classic marine semianalog panel. Both layouts are held in the device's memory.
+<br><br><b>Instrument Size:</b> Change the size of instrument for optimal viewing on the browser in use. The setting applies to all devices connected. Unfortunately individual layout per display unit is not possible due to ESP restrictions.
+<br><br><b>WLAN Client SSID:</b> SSID of the external network used by the sensor to transmit raw data to OpenPlotter or other data servers.
+<br><br><b>WLAN Client Password:</b> Password to access the external network used by the sensor to transmit raw data to data servers (e.g. OpenPlotter).
+<br><br><b>Connection Timeout:</b> The wind sensor tries to establish a client connection until the timeout has expired. Notice: If no connection has been established, the web interface can only be reached after the timeout has expired. The timeout is useful when OpenPlotter and the wind sensor are switched on at the same time. The wind sensor starts faster and then tries to connect until the timeout expires. If the timeout is longer than the OpenPlotter's boot phase, the wind sensor can automatically log into the OpenPlotter's WLAN after switching on.
+<br><br><b>WLAN Server SSID:</b> SSID of the wireless network created by the windsensor to provide the web interface. You can use a mobile phone or tablet to display wind data.
+<br><br><b>WLAN Server Password:</b> Password of the wireless network created by the windsensor to provide the web interface.
+<br><br><b>Server Mode:</b>
+<b>'HTTP (JSON/NMEA)' </b>is the default value. The Windsensor provides a web interface with data formatted as JSON. This mode may also be used for other applications accepting JSON. In the same mode is it possible to transmit NMEA0183 data to applications like OpenPlotter on Port 6666. In this case the Windsensor serves as data server with OpenPlotter being the client.
+With <b>'NMEA Serial'</b> you can setup a RS232 serial connection for NMEA0183 data transmission by wired cable. The mode supports also a serial debug mode for hardware debugging. In this case select and change the settings in <b>Serial Debug Mode</b>.
+<b>'MQTT'</b> Is reserved for future functions to connect to an MQTT server. Currently the function is not implemented.
+<b>'Diagnostic'</b>In diagnostic mode, more in-depth functions of the wind sensor can be checked. A software oscilloscope has been integrated into the wind sensor to display the digital sensor data over time. This enables a simple control of the sensor function without having to connect a hardware oscilloscope to the IC pins. The oscilloscope data is transferred via a JSON interface to an external diagnostic tool and displayed there. The diagnostic tool can be downloaded here: <a href="https://gitlab.com/norbertwalter67/Windsensor_WiFi_1000/tree/master/Diagnostic%20Tool">Diagnostic Tool on GitLab</a>
+Additional information on the tests can be found in the description of the diagnostic tool.
+When set to <b>'Demo Mode'</b> the Windsensor provides demo data using HTTP (JSON/NMEA) data format.
+<br><br><b>Serial Debug Mode:</b> The Serial Debug Mode supports hardware debugging. You can monitor and control all Windsensor functions over a serial RS232 connection (RX,TX,GND). The output signal level is set to 3.3V TTL. Use a level shifter TTL/RS232-USB to connect with a PC. On PC side you can use a terminal program to display all ASCII debug information.
+<br><br><b>Serial Speed:</b> Serial Speed determines the RS232 line speed.
+<br><br><b>Sensor ID:</b> Unique ID of the Windsensor when multiple sensors are installed.
+<br><br><b>Wind Sensor Type:</b> Describes the type of wind transducer. At present just Windsensor NOWA1000 is available. Future versions may provide different sensors.
+<br><br><b>Send Wind Data:</b> Setting this value to 'true' enables wind data transmission. When set to 'false' data transmission will be stopped.
+<br><br><b>Wind Type:</b> Describes the type of wind for other applications. The Windsensor only measures apparent wind direction and speed relative to the boat. With 'true wind' however you can send the sensor's wind data using a different label in case your data processing application just accepts true wind data. In 'true wind' mode change the design of instrument to fix direction scale. This mode is usable for a weather station with stationary wind sensor.
+<br><br><b>Offset:</b> The offset value is used to correct the wind direction in case the wind sensor has not been aligned exactly midships. Valid values are -180°...+180°.
+<br><br><b>Average:</b> Factor for moving average calculation. Higher factors smoothen wind angle and speed values. Decrease the factor for more reactive values.
+<br><br><b>Speed Unit:</b> The selected unit will be used to display windspeed.
+<br><br><b>Down Wind Sensor:</b> Set to 'true' to use the Down Wind Sensor. This is a performance value indicating the unused windspeed. If the boat's speed is equal to windspeed, this value will be zero and Wind force is optimally used. Down Wind Sensor values will be calculated when wind hits from aft within the Down Wind Range, otherwise set to zero.
+<br><br><b>Down Wind Range:</b> Defines the wind range for down winds. Down wind range is shown in the bottom area of the grafic instruments.
+<br><br><b>Temp Sensor Type:</b> Select type of temperature sensor that may be optionally installed. In future applications we consider providing weather sensors.
+<br><br><b>Send Temp Data:</b> 'True' to enable temperature sensor data. 'False' to stop temperature data transmission.
+<br><br><b>Temp Unit:</b> Temperature unit to be displayed on all devices attached.
+<h3>Firmware Update</h3>
+This page allows updating the Windsensor's firmware in two variants. The first variant use al local stored file. Select the new firmware file and click button 'Update Firmware'. Please be careful to enter the right filename extension (<b>wsb</b>) for firmware update. Success status will be displayed upon completion. OK indicates a successful update. Otherwise an error information will be shown. In the second variant, the firmware can be updated directly from GitLab. The latest actual firmware is displayed. If the local firmware is older than the new firmware, it can be updated. Otherwise an update is not possible.<b>Caution! By loading an incorrect or corrupted file in first variant the Windsensor will render unusable and may require a manufacturer service.</b> Reboot the Windsensor after successful firmware update.
+<br><br><img src="public/pictures_V1.04/Firmware.png" alt="Firmware Update">
+<h3>Restart Device</h3>
+At present it's not possible to reboot the device by software - poweroff the Windsensor manually instead and switch it on again.
+<br><br><img src="public/pictures_V1.04/Restart.png" alt="Restart Device">
+<h3>Style</h3>
+You can toggle between three page styles. Click the button again to change to the next style. Beware that all changes will apply to all displays connected.
+<br><br><img src="public/pictures_V1.04/Main.png" alt="Dark Style">
+<br><br><img src="public/pictures_V1.04/Main_gray.png" alt="Withe Style">
+<br><br><img src="public/pictures_V1.04/Main_red.png" alt="Night Style">
+<h3>System Help</h3>
+Displays this help text. If you require more information, please refer to the project page on GitLab.
+<br><br><a href="https://gitlab.com/norbertwalter67/Windsensor_WiFi_1000"  target="_blank">Windsensor WiFi 1000</a>
+<h3>Thanks Note</h3>
+<table>
+<tr>
+<td><b>Benjamin Wagner</b></td>
+<td></td>
+<td>For the valuable tips regarding OnShape CAD system and 3D printing</td>
+</tr>
+<tr>
+<td><b>Kurt Georg Walter</b></td>
+<td></td>
+<td>For the 3D printer donation</td>
+</tr>
+<tr>
+<td><b>Jacob Schwarzmann</b></td>
+<td></td>
+<td>For the excellent manufacturing of all metal prototype parts</td>
+</tr>
+<tr>
+<td><b>Michael Satzinger</b></td>
+<td></td>
+<td>For software testing and translation support</td>
+</tr>
+<tr>
+<td><b>Gerrit Grunwald</b></td>
+<td></td>
+<td>For the nice canvas steelseries instrument library</td>
+</tr>
+<tr>
+<td><b>GitLab Team</b></td>
+<td></td>
+<td>For the project hosting platform and for hosting of software parts</td>
+</tr>
+</table>
+<h3>Donation</h3>
+If you want to help or you consider this project as useful, please donate. Thanks for your support!
+<br><br>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="5QZJZBM252F2L" />
+<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+</form>
+<br>
+<hr align="left">
+<br>
+<form action='http://192.168.4.1'><button type='submit'>Back</button></form>
+</body>
+</html>
