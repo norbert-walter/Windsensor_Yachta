@@ -9,7 +9,7 @@ This page contains the HTTP server for the wind sensor online documentation. It 
 
 The online documentation can be found under the following links:
 
-Online Documentation V1.00 [https://norbert-walter.github.io/Windsensor_Yachta/public/index.html](https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.00.html)
+Online Documentation V1.00 [https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.00.html](https://norbert-walter.github.io/Windsensor_Yachta/public/index.html)
 
 Online Documentation V1.01 [https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.01.html](https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.01.html)
 
