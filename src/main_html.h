@@ -117,7 +117,7 @@ String Startpage(int num, String vname[20], String value[20])
  
  content +=F( "<tr>");
  content +=F( "<td><form action='settings'><button type='submit' id='settings'>Device Settings</button></form></td>");
- content +=F( "<td><form action='https://norbertwalter67.gitlab.io/plain-html/index_");
+ content +=F( "<td><form action='https://norbert-walter.github.io/Windsensor_Yachta/public/index_");
  content += String(actconf.fversion);
  content +=F( ".html'><button type='submit'  id='help'>System Help</button></form></td>");
  content +=F( "<td></td>");
