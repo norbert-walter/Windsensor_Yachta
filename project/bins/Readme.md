@@ -1,4 +1,14 @@
-**20220906 firmware_V1.17.wsb `(stable)`**
+**20230724 firmware_V1.18.wsb `(stable)`**
+
+* Repository changed from GitLab to GitHub
+* Gitpod integration
+* Temperature compensation for DS18B20
+* Supports wind sensor PCB Yachta 2.0 with new magnetic rotation sensor MT6701 
+* WLAN default settings (SSID: NoWa, Pass: 12345678, IP: 192.168.4.1)
+
+`Attention! After update changes all settings to default values. Please renew the settings.`
+
+**20220906 firmware_V1.17.wsb `(old)`**
 
 * Fix for calibration
 * WLAN default settings (SSID: NoWa, Pass: 12345678, IP: 192.168.4.1)
