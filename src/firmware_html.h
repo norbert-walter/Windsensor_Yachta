@@ -96,8 +96,8 @@ String Firmware(int num, String vname[20], String value[20])
    content +=F( "internet = 1;");
    // Read link to firmware and firmware version
    content +=F( "link = this.responseText;");
-   content +=F( "var firmware =  link.slice(54, 100);");
-   content +=F( "var version = link.slice(63, 68);");
+   content +=F( "var firmware =  link.slice(67, 113);");
+   content +=F( "var version = link.slice(76, 81);");
    content +=F( "document.upform1.firmware.value = firmware;");
    content +=F( "document.upform1.version.value = version;");
    // New firmware available
@@ -135,7 +135,7 @@ String Firmware(int num, String vname[20], String value[20])
    content +=F( "};");
   
    content +=F( "function check_internet() {");
-   content +=F( "xmlhttp.open('GET', 'https://norbertwalter67.gitlab.io/plain-html/firmware/ActualVersion.txt', true);");
+   content +=F( "xmlhttp.open('GET', 'https://norbert-walter.github.io/Windsensor_Yachta/public/firmware/ActualVersion.txt', true);");
    content +=F( "xmlhttp.send();");
    content +=F( "};");
   
@@ -206,7 +206,7 @@ String Firmware(int num, String vname[20], String value[20])
    content +=F( "</form>");
    content +=F( "<hr align='left'>");
    
-   content +=F( "<form name='upform1' action='/update' method='post' enctype='multipart/form-data'>Or use the actual online firmware on GitLab:");
+   content +=F( "<form name='upform1' action='/update' method='post' enctype='multipart/form-data'>Or use the actual online firmware on GitHub:");
    content +=F( "<p>");
    content +=F( "<input type='text' name='firmware' size='20' value='' onchange='check_file()'> Version:");
    content +=F( "<input type='text' name='version' size='5' value='' maxlength='20'>");
