@@ -50,13 +50,14 @@ void calculationData(){
     }
 
     // Read device temperature 1Wire DS18B20
+    // The DS18B20 neeed a temperature compensation because the data rate is 2 Hz and heats up the sensor
     if(String(actconf.tempSensorType) == "DS18B20"){
       DS18B20.requestTemperatures();
       if(String(actconf.tempUnit) == "C"){
-        temperature = float(DS18B20.getTempCByIndex(0));
+        temperature = float(DS18B20.getTempCByIndex(0) - 6.0);            // With temperature compensation
       }
       else{
-        temperature = float(DS18B20.getTempFByIndex(0));
+        temperature = float(DS18B20.getTempFByIndex(0) - (6.0 * 9 / 5));  // With temperature compensation
       }
     }
 
@@ -102,7 +103,7 @@ void calculationData(){
     if(String(actconf.windSensorType) == "Yachta 2.0"){
       // Read only magnetic values if the I2C device is ready
       if(i2creadyMT6701 == 1){
-        magnitude = mt6701.getRawAngle();     // 0...16384 which is 0.0219 of a degree
+        magnitude = 0;                              // 0...16384 which is 0.0219 of a degree
         magsensor = 360 - mt6701.getDegreesAngle(); // value in degree
         // Limiting values outer range
         if(magsensor < 0){
@@ -213,7 +214,7 @@ void calculationData(){
         // Wind speed n[Hz] = 1 / time1[ms] *1000  // 1 pulse per round
         windspeed_hz = 1.0 / time1_avg * 1000;
       }
-      if(String(actconf.windSensorType) == "Yachta" || String(actconf.windSensorType) == "Jukolein"){
+      if(String(actconf.windSensorType) == "Yachta" || String(actconf.windSensorType) == "Yachta 2.0" || String(actconf.windSensorType) == "Jukolein"){
         // Wind speed n[Hz] = 1 / time1[ms] *1000 / 2
         windspeed_hz = 1.0 / time1_avg * 1000 / 2; // 2 pulses per round
       }
@@ -234,7 +235,7 @@ void calculationData(){
       // Wind speed, v[m/s] = (2 * Pi * n[Hz] * r[m]) / lamda[1]
       windspeed_mps = (2 * pi * windspeed_hz * radius) / lamda;
     }
-    if(String(actconf.windSensorType) == "Yachta" || String(actconf.windSensorType) == "Jukolein"){
+    if(String(actconf.windSensorType) == "Yachta" || String(actconf.windSensorType) == "Yachta 2.0" || String(actconf.windSensorType) == "Jukolein"){
       // Wind speed, v[m/s] = (2 * Pi * n[Hz] * r[m]) / lamda[1]
       windspeed_mps = (2 * pi * windspeed_hz * radius2) / lamda;
     }
