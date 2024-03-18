@@ -33,7 +33,7 @@ String sendMWV(int sendmode){
   SendWindSpeed = "$" + NMEAWindSpeed;
   SendWindSpeed += "*";
   SendWindSpeed += HexCheckSum;
-  if((int(actconf.serverMode) == 1 && sendmode == 1) || (int(actconf.debug) >= 3 && sendmode == 1)){
+  if((int(actconf.serverMode) == 1 && sendmode == 1) || (int(actconf.serverMode) == 4 && sendmode == 1) || (int(actconf.debug) >= 3 && sendmode == 1)){
     Serial.println(SendWindSpeed);
   }
 

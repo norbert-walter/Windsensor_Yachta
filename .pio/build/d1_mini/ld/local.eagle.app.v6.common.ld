@@ -1,5 +1,13 @@
 /* This linker script generated from xt-genldscripts.tpp for LSP . */
 /* Linker Script for ld -N */
+/* The restriction to one MEMORY command, appears to be a restriction in
+   past versions. https://stackoverflow.com/a/55673816
+   This 2nd MEMORY command appears to work fine.
+*/
+MEMORY
+{
+  iram1_0_seg : org = 0x40100000, len = 0x8000
+}
 PHDRS
 {
   dport0_0_phdr PT_LOAD;
@@ -113,24 +121,50 @@ SECTIONS
     *(.init.literal)
     *(.init)
     *(.text.app_entry*) /* The main startup code */
-    *(.text.gdbstub*, .text.gdb_init) /* Any GDB hooks */
+    *(.text.gdbstub* .text.gdb_init) /* Any GDB hooks */
     /* all functional callers are placed in IRAM (including SPI/IRQ callbacks/etc) here */
     *(.text._ZNKSt8functionIF*EE*) /* std::function<any(...)>::operator()() const */
   } >iram1_0_seg :iram1_0_phdr
   .irom0.text : ALIGN(4)
   {
     _irom0_text_start = ABSOLUTE(.);
+    /* Stuff the CRC in well known symbols at a well known location */
+    __crc_len = ABSOLUTE(.);
+    LONG(0x00000000);
+    __crc_val = ABSOLUTE(.);
+    LONG(0x00000000);
     *(.ver_number)
-    *.c.o(.literal*, .text*)
-    *.cpp.o(EXCLUDE_FILE (umm_malloc.cpp.o) .literal*, EXCLUDE_FILE (umm_malloc.cpp.o) .text*)
-    *.cc.o(.literal*, .text*)
+    *.c.o(.literal* .text*)
+    *.cpp.o(EXCLUDE_FILE (umm_malloc.cpp.o) .literal* EXCLUDE_FILE (umm_malloc.cpp.o) .text*)
+    *.cc.o(.literal* .text*)
     *(.rodata._ZTV*) /* C++ vtables */
+    . = ALIGN(4); /* this table MUST be 4-byte aligned */
+    /*  C++ constructor and destructor tables, properly ordered:  */
+    __init_array_start = ABSOLUTE(.);
+    KEEP (*crtbegin.o(.ctors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
+    KEEP (*(SORT(.ctors.*)))
+    KEEP (*(.ctors))
+    __init_array_end = ABSOLUTE(.);
+    KEEP (*crtbegin.o(.dtors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
+    KEEP (*(SORT(.dtors.*)))
+    KEEP (*(.dtors))
+    . = ALIGN(4); /* this table MUST be 4-byte aligned */
+    _bss_table_start = ABSOLUTE(.);
+    LONG(_bss_start)
+    LONG(_bss_end)
+    _bss_table_end = ABSOLUTE(.);
     *libgcc.a:unwind-dw2.o(.literal .text .rodata .literal.* .text.* .rodata.*)
     *libgcc.a:unwind-dw2-fde.o(.literal .text .rodata .literal.* .text.* .rodata.*)
     *libc.a:(.literal .text .literal.* .text.*)
     *libm.a:(.literal .text .literal.* .text.*)
     *libgcc.a:_umoddi3.o(.literal .text)
     *libgcc.a:_udivdi3.o(.literal .text)
+    *libgcc.a:_divsf3.o(.literal .text)
+    *libgcc.a:_fixsfsi.o(.literal .text)
+    *libgcc.a:_cmpdf2.o(.literal .text)
+    *libgcc.a:_cmpsf2.o(.literal .text)
     *libstdc++.a:( .literal .text .literal.* .text.*)
     *libstdc++-exc.a:( .literal .text .literal.* .text.*)
     *libsmartconfig.a:(.literal .text .literal.* .text.*)
@@ -143,7 +177,6 @@ SECTIONS
     *liblwip6-536-feat.a:(.literal .text .literal.* .text.*)
     *liblwip6-1460-feat.a:(.literal .text .literal.* .text.*)
     *libbearssl.a:(.literal .text .literal.* .text.*)
-    *libaxtls.a:(.literal .text .literal.* .text.*)
     *libat.a:(.literal.* .text.*)
     *libcrypto.a:(.literal.* .text.*)
     *libespnow.a:(.literal.* .text.*)
@@ -160,12 +193,15 @@ SECTIONS
     *(.irom0.literal .irom.literal .irom.text.literal .irom0.text .irom0.text.* .irom.text .irom.text.*)
     /* Constant strings in flash (PSTRs) */
     *(.irom0.pstr.*)
+    /* Inline flash strings PSTR() within templated code */
+    *(.rodata._ZZ*__pstr__*)
     /* __FUNCTION__ locals */
     *(.rodata._ZZ*__FUNCTION__)
     *(.rodata._ZZ*__PRETTY_FUNCTION__)
     *(.rodata._ZZ*__func__)
     /* std::* exception strings, in their own section to allow string coalescing */
-    *(.irom.exceptiontext)
+    *(.irom.exceptiontext .rodata.exceptiontext)
+    *(.rodata.*__exception_what__*) /* G++ seems to throw out templatized section attributes */
     /* c++ typeof IDs, etc. */
     *(.rodata._ZTIN* .rodata._ZTSN10* .rodata._ZTISt* .rodata._ZTSSt*)
     /* Fundamental type info */
@@ -202,18 +238,7 @@ SECTIONS
     *(.gnu.linkonce.e.*)
     *(.gnu.version_r)
     *(.eh_frame)
-    . = (. + 3) & ~ 3;
-    /*  C++ constructor and destructor tables, properly ordered:  */
-    __init_array_start = ABSOLUTE(.);
-    KEEP (*crtbegin.o(.ctors))
-    KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
-    KEEP (*(SORT(.ctors.*)))
-    KEEP (*(.ctors))
-    __init_array_end = ABSOLUTE(.);
-    KEEP (*crtbegin.o(.dtors))
-    KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
-    KEEP (*(SORT(.dtors.*)))
-    KEEP (*(.dtors))
+    . = ALIGN(4);
     /*  C++ exception handlers table:  */
     __XT_EXCEPTION_DESCS__ = ABSOLUTE(.);
     *(.xt_except_desc)
@@ -222,11 +247,6 @@ SECTIONS
     *(.xt_except_desc_end)
     *(.dynamic)
     *(.gnu.version_d)
-    . = ALIGN(4); /* this table MUST be 4-byte aligned */
-    _bss_table_start = ABSOLUTE(.);
-    LONG(_bss_start)
-    LONG(_bss_end)
-    _bss_table_end = ABSOLUTE(.);
     _rodata_end = ABSOLUTE(.);
   } >dram0_0_seg :dram0_0_phdr
   .bss ALIGN(8) (NOLOAD) : ALIGN(4)

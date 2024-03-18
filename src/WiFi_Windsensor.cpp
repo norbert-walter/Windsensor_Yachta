@@ -365,7 +365,7 @@ void setup() {
   if(actconf.mDNS == 1){
     MDNS.begin(hname);      // Start mDNS service
     MDNS.addService("http", "tcp", actconf.httpport);       // HTTP service
-    MDNS.addService("nmea-0183", "tcp", actconf.dataport);  // NMEA0183 dada service for AVnav
+    MDNS.addService("nmea-0183", "tcp", actconf.dataport);  // NMEA0183 data service for AVnav
   }  
   DebugPrintln(3, "mDNS service: activ");
   DebugPrint(3, "mDNS name: ");
@@ -481,8 +481,8 @@ void loop() {
   }
 
   // While client is connected or Serial Mode is active
-  while ((client.connected() && !client.available()) || (int(actconf.serverMode) == 1)) {
-
+  //while ((client.connected() && !client.available()) || (int(actconf.serverMode) == 1)) {
+  while (client.connected() && !client.available()) {
     digitalWrite(ledPin, HIGH);     // LED off (Low activ)
     
     httpServer.handleClient();      // HTTP Server-handler for HTTP update server
@@ -525,7 +525,6 @@ void loop() {
       flag1 = false;                // Reset the flag
     }
 
-
     // Sending NMEA data with reduced speed
     if (windspeed_mps <= 0 && flag2 == true){
       i++;
@@ -555,5 +554,51 @@ void loop() {
     }
 
   }
+
+  // If client not connected and server mode 1 (NMEA Serial) or server mode 4 (Demo)
+  if(!client.connected() && (int(actconf.serverMode) == 1 || int(actconf.serverMode) == 4)){
+    // Sending NMEA data with normal speed
+    if (windspeed_mps > 0 && flag1 == true){  
+      if(int(actconf.windSensor) == 1){
+        sendMWV(1);  // Send NMEA telegrams
+        sendVWR(1);
+        sendVPW(1);
+        sendINF(1);
+      }
+      if(int(actconf.tempSensor) == 1){
+        if(String(actconf.tempSensorType) == "DS18B20"){
+          sendWST(1);
+        }
+        if(String(actconf.tempSensorType) == "BME280"){
+          sendWSE(1);
+        }    
+      }
+
+      flashLED(10);                 // Flash LED for data transmission
+      flag1 = false;                // Reset the flag
+    }
+
+    // Sending NMEA data with reduced speed
+    if (windspeed_mps <= 0 && flag2 == true){      
+      if(int(actconf.windSensor) == 1){
+        sendMWV(1);  // Send NMEA telegrams
+        sendVWR(1);
+        sendVPW(1);
+        sendINF(1);
+      }
+      if(int(actconf.tempSensor) == 1){
+        if(String(actconf.tempSensorType) == "DS18B20"){
+          sendWST(1);
+        }
+        if(String(actconf.tempSensorType) == "BME280"){
+          sendWSE(1);
+        }    
+      }
+           
+      flashLED(10);                 // Flash LED for data transmission
+      flag2 = false;                // Reset the flag
+    }
+  }
+
   delay(150);                       // Delay for load reducing
 }
