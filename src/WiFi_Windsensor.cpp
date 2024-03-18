@@ -481,7 +481,6 @@ void loop() {
   }
 
   // While client is connected or Serial Mode is active
-  //while ((client.connected() && !client.available()) || (int(actconf.serverMode) == 1)) {
   while (client.connected() && !client.available()) {
     digitalWrite(ledPin, HIGH);     // LED off (Low activ)
     
