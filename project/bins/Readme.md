@@ -1,10 +1,17 @@
-**20230724 firmware_V1.18.wsb `(stable)`**
+**20240320 firmware_V1.19.wsb `(stable)`**
+
+* Reorganisation server mode NMEA Serial
+* Supports Clipper Wind daughter display via NMEA0183 
+* Details: https://www.segeln-forum.de/thread/67401-windsensor-diy/?postID=2623770#post2623770
+* WLAN default settings (SSID: Yachta, Pass: 12345678, IP: 192.168.4.1)
+
+**20230724 firmware_V1.18.wsb `(old)`**
 
 * Repository changed from GitLab to GitHub
 * Gitpod integration
 * Temperature compensation for DS18B20
 * Supports wind sensor PCB Yachta 2.0 with new magnetic rotation sensor MT6701 
-* WLAN default settings (SSID: NoWa, Pass: 12345678, IP: 192.168.4.1)
+* WLAN default settings (SSID: Yachta, Pass: 12345678, IP: 192.168.4.1)
 
 `Attention! After update changes all settings to default values. Please renew the settings.`
 
