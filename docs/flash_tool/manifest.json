@@ -1,6 +1,6 @@
 {
     "name": "Windsensor Yachta Firmware",
-    "version": "V1.19",
+    "version": "V1.20",
     "new_install_prompt_erase": false,
     "builds": [
       {

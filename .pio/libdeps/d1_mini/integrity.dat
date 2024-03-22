@@ -1,5 +1,5 @@
-paulstoffregen/OneWire@^2.3.3
-adafruit/Adafruit Unified Sensor@1.1.9
 adafruit/Adafruit BME280 Library@2.0.1
 wizard97/SimplyAtomic@1.0
+adafruit/Adafruit Unified Sensor@1.1.9
+paulstoffregen/OneWire@2.3.8
 milesburton/DallasTemperature@3.8.0

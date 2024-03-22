@@ -1,11 +1,18 @@
-**20240320 firmware_V1.19.wsb `(stable)`**
+**20240322 firmware_V1.20.wsb `(stable)`**
+
+* Change the network address from 192.168.4.1 to 192.168.5.1
+* This solv conection problems with other ESP32 and ESP8266 hardware that used the standard IP address 192.168.4.1
+* In most cases, this change has no impact on existing configurations. In external software you must change the IP address. 
+* WLAN default settings (SSID: Yachta, Pass: 12345678, IP: 192.168.5.1)
+
+**20240320 firmware_V1.19.wsb `(old)`**
 
 * Reorganisation server mode NMEA Serial
 * Supports Clipper Wind daughter display via NMEA0183 
 * Details: https://www.segeln-forum.de/thread/67401-windsensor-diy/?postID=2623770#post2623770
 * WLAN default settings (SSID: Yachta, Pass: 12345678, IP: 192.168.4.1)
 
-**20230724 firmware_V1.18.wsb `(stable)`**
+**20230724 firmware_V1.18.wsb `(old)`**
 
 * Repository changed from GitLab to GitHub
 * Gitpod integration

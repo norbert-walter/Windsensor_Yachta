@@ -58,6 +58,20 @@ String CSS()
  blackcontent += F("font-family: arial;");
  blackcontent += F("}");
 
+ // Link text definitions
+ blackcontent += F("a:link {");
+ blackcontent += F("color: rgb(200,200,200);");
+ blackcontent += F("}");
+ blackcontent += F("a:visited {");
+ blackcontent += F("color: rgb(200,200,200);");
+ blackcontent += F("}");
+ blackcontent += F("a:hover {");
+ blackcontent += F("color: rgb(255,255,255);");
+ blackcontent += F("}");
+ blackcontent += F("a:active {");
+ blackcontent += F("color: rgb(255,255,255);");
+ blackcontent += F("}");
+
  // Blinking text definition
  blackcontent += F("blink {");
  blackcontent += F("animation: blinker 0.6s linear infinite;");
@@ -81,8 +95,8 @@ String CSS()
  blackcontent += F("stroke: #FFFFFF;");
  blackcontent += F("}");
 
- // Page nightstyle in black background an red font
- // ***********************************************
+ // Page nightstyle in black background and red font
+ // ************************************************
  String redcontent;
  // Button style and color
  redcontent += F("button {");
@@ -136,6 +150,20 @@ String CSS()
  redcontent += F("font-family: arial;");
  redcontent += F("}");
 
+ // Link text definitions
+ redcontent += F("a:link {");
+ redcontent += F("color: rgb(200,0,0);");
+ redcontent += F("}");
+ redcontent += F("a:visited {");
+ redcontent += F("color: rgb(200,0,0);");
+ redcontent += F("}");
+ redcontent += F("a:hover {");
+ redcontent += F("color: rgb(255,0,0);");
+ redcontent += F("}");
+ redcontent += F("a:active {");
+ redcontent += F("color: rgb(255,0,0);");
+ redcontent += F("}");
+
  // Blinking text definition
  redcontent += F("blink {");
  redcontent += F("animation: blinker 0.6s linear infinite;");
@@ -157,8 +185,8 @@ String CSS()
  redcontent += F("stroke: #C0C0C0;");
  redcontent += F("}");
 
- // Page daystyle in white background an black font
- // ***********************************************
+ // Page daystyle in white background and black font
+ // ************************************************
  String whitecontent;
  // Button style and color
  whitecontent += F("button {");
@@ -210,6 +238,20 @@ String CSS()
  whitecontent += F("body {");
  whitecontent += F("color: rgb(100,100,100);");
  whitecontent += F("font-family: arial;");
+ whitecontent += F("}");
+
+ // Link text definitions
+ whitecontent += F("a:link {");
+ whitecontent += F("color: rgb(100,100,100);");
+ whitecontent += F("}");
+ whitecontent += F("a:visited {");
+ whitecontent += F("color: rgb(100,100,100);");
+ whitecontent += F("}");
+ whitecontent += F("a:hover {");
+ whitecontent += F("color: rgb(0,0,0);");
+ whitecontent += F("}");
+ whitecontent += F("a:active {");
+ whitecontent += F("color: rgb(0,0,0);");
  whitecontent += F("}");
 
  // Blinking text definition

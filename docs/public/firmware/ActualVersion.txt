@@ -1,1 +1,1 @@
-https://norbert-walter.github.io/Windsensor_Yachta/public/firmware/firmware_V1.19.wsb
+https://norbert-walter.github.io/Windsensor_Yachta/public/firmware/firmware_V1.20.wsb

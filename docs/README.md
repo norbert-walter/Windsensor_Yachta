@@ -53,3 +53,5 @@ Online Documentation V1.18 [https://norbert-walter.github.io/Windsensor_Yachta/p
 
 Online Documentation V1.19 [https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.19.html](https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.19.html)
 
+Online Documentation V1.20 [https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.20.html](https://norbert-walter.github.io/Windsensor_Yachta/public/index_V1.20.html)
+

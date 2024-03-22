@@ -357,6 +357,10 @@ void setup() {
   DebugPrint(3, "Max AP connections: ");
   DebugPrintln(3, actconf.maxconnections);
   WiFi.mode(WIFI_AP_STA);
+  IPAddress local_IP(192,168,5,1);
+  IPAddress gateway(192,168,5,255);
+  IPAddress subnet(255,255,255,0);
+  WiFi.softAPConfig(local_IP, gateway, subnet);
   WiFi.softAP(actconf.sssid, actconf.spassword, actconf.apchannel, false, actconf.maxconnections);
   hname = String(actconf.hostname) + "-" + String(actconf.sensorID);
   WiFi.hostname(hname);   // Provide the hostname

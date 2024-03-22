@@ -210,7 +210,7 @@ String Firmware(int num, String vname[20], String value[20])
    content +=F( "<p>");
    content +=F( "<input type='text' name='firmware' size='20' value='' onchange='check_file()'> Version:");
    content +=F( "<input type='text' name='version' size='5' value='' maxlength='20'>");
-   content +=F( "<p><font size='2'><data id='info'></data></font>");
+   content +=F( "<p><font size='2'><data id='info'></data> See <a href='https://github.com/norbert-walter/Windsensor_Yachta/blob/main/docs/public/firmware/Readme.md'>changelog</a></font>");
    content +=F( "</form>");
   
    content +=F( "<button type='submit' id='sub2' onclick='send_image()'>Update Firmware</button>");
