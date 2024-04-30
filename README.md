@@ -95,10 +95,10 @@ I have completed many tasks but still not everything is perfect so far.
     - [x] Coating tests
 - [x] Mechanical design
     - [x] 3D parts
-- [ ] Electronic design
+- [x] Electronic design
     - [x] Circuit design
     - [x] Board design
-    - [ ] Customer sample circuit
+    - [x] Customer sample circuit
 - [ ] Software
     - [x] Basic functionality
     - [x] NMEA0183 WiFi
@@ -121,32 +121,32 @@ I have completed many tasks but still not everything is perfect so far.
 - [x] Prototyp creation
     - [x] Yachta prototype
     - [x] Modifyed Yachta prototype
-- [ ] Production Zero series
-    - [ ] DIY Kits
-    - [ ] Assembled windsensor
-- [ ] Shipping Zero Series
-- [ ] Documentation
-    - [ ] Technical description
+- [x] Production Zero series
+    - [x] DIY Kits
+    - [x] Assembled windsensor
+- [x] Shipping Zero Series
+- [x] Documentation
+    - [x] Technical description
 	- [x] Description Web frontend
-    - [ ] Construction manual
+    - [x] Construction manual
     - [x] Part list
-    - [ ] User manual
-    - [ ] Data sheet
+    - [x] User manual
+    - [x] Data sheet
 - [ ] Application tests
     - [x] Temperature 20...80°C
-    - [ ] Vibration test by strong wind (8bft)
+    - [x] Vibration test by strong wind (8bft)
     - [x] WiFi stability test
     - [x] Connection test
-    - [ ] Rain test
+    - [x] Rain test
     - [ ] IPX6 Water resistance test
-    - [ ] UV radiation test
-    - [ ] Long time test
-    - [ ] Test with auto pilot
+    - [x] UV radiation test
+    - [x] Long time test
+    - [x] Test with auto pilot
     - [x] User experiences
 - [ ] Extensions
     - [x] Multi function display with M5Stack
     - [ ] NMEA2000 Gateway
-    - [ ] Weather data sensor with BME280
+    - [x] Weather data sensor with BME280
 - [ ] Certification
     - [ ] CE Certification
 
