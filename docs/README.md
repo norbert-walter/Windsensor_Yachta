@@ -1,6 +1,6 @@
 ## Wind Sensor Online Flash Tool
 
-The Online Flash Tool can be used to flash the ESP8266 directly from the browser. A USB cable and the Crome or Edge browser are required.
+The Online Flash Tool can be used to flash the ESP8266 directly from the browser. A USB cable and the Chrome or Edge browser are required.
 
 Online Flash Tool [https://norbert-walter.github.io/Windsensor_Yachta/flash_tool/esp_flash_tool.html](https://norbert-walter.github.io/Windsensor_Yachta/flash_tool/esp_flash_tool.html)
 
