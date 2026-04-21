@@ -133,6 +133,13 @@ httpServer.on("/json", []() {
   httpServer.send(200, "application/json", content);
 });
 
+httpServer.on("/device_description", []() {
+  String content = DeviceDescription();
+  httpServer.sendHeader("Access-Control-Allow-Origin", "*"); // Needs new browser for CORS (Cross Origin Resource Sharing)
+  httpServer.sendHeader("Cache-Control", "no-cache");
+  httpServer.send(200, "application/json", content);
+});
+
 // Send JSON2 only for Diagnostic Mode
 httpServer.on("/json2", []() {
   String content = JSON2();

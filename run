@@ -15,7 +15,7 @@ toolpath="./docs/flash_tool"
 # Install tools
 echo "Installing tools"
 pip3 install -U esptool
-pip3 install -platformio
+pip3 install platformio
 
 # Compile the firmware
 echo "Compiling Firmware"

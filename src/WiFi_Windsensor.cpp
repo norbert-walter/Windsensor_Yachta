@@ -40,7 +40,7 @@
 #include "Configuration.h"  // Setup data structure in header file
 #include "Definitions.h"    // Local definitions in additional file
 
-AMS_5600 ams5600;            // Declare magnetic rotation sensor AS5600
+AMS_5600 ams5600;           // Declare magnetic rotation sensor AS5600
 MT6701I2C mt6701(&Wire);    // Declare magnetic rotation sensor MT6701
 Adafruit_BME280 bme;        // Declare environment sensor BME280
 OneWire oneWire(ONE_WIRE_BUS); // Declare 1Wire
@@ -60,6 +60,7 @@ configData actconf;         // Actual configuration, Global variable
 #include "main_html.h"      // Main webpage
 #include "settings_html.h"  // Settings webpage
 #include "firmware_html.h"  // Firmware update webpage
+#include "device_description_html.h" // Device self description as JSON for external AI models
 #include "json_html.h"      // JSON webpage
 #include "json2_html.h"     // JSON webpage for Hall sensor signals
 #include "MD5_html.h"       // JavaScript crypt password with MD5
