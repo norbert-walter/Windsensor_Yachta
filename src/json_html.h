@@ -36,68 +36,75 @@ String JSON()
     "CopyRights": "<<CRIGHTS>>",
     "FirmwareVersion": "<<FVERSION>>",
     "License": "<<LICENSE>>",
+
     "ESP8266": {
       "SDKVersion": "<<SDK_VERSION>>",
       "ChipID": <<CHIP_ID>>,
-      "CPUSpeed": {"Value": <<CPU_SPEED>>, "Unit": "MHz"},
-      "FreeHeapSize": {"Value": <<FREE_HEAP>>, "Unit": "Byte"}
+      "CPUSpeed": { "Value": <<CPU_SPEED>>, "Unit": "MHz" },
+      "FreeHeapSize": { "Value": <<FREE_HEAP>>, "Unit": "Byte" }
+    },
+
+    "NetworkParameter": {
+      "WLANClientSSID": "<<WLAN_CLIENT_SSID>>",
+      "WLANClientIP": "<<WLAN_CLIENT_IP>>",
+      "FieldStrength": { "Value": <<FIELD_STRENGTH>>, "Unit": "dBm" },
+      "ConnectionQuality": { "Value": <<CONNECTION_QUALITY>>, "Unit": "%" },
+      "WLANServerSSID": "<<WLAN_SERVER_SSID>>",
+      "WLANServerIP": "<<WLAN_SERVER_IP>>",
+      "ServerMode": <<SERVER_MODE>>,
+      "ServerHostName": "<<SERVER_HOSTNAME>>"
+    },
+
+    "DisplaySettings": {
+      "Skin": <<SKIN>>,
+      "InstrumentType": "<<INSTRUMENT_TYPE>>",
+      "InstrumentSize": "<<INSTRUMENT_SIZE>>"
+    },
+
+    "DeviceSettings": {
+      "SerialDebugMode": <<SERIAL_DEBUG_MODE>>,
+      "SerialSpeed": <<SERIAL_SPEED>>,
+      "SensorID": <<SENSOR_ID>>,
+      "SensorType": "<<SENSOR_TYPE>>",
+      "SendWindData": <<SEND_WIND_DATA>>,
+      "WindType": "<<WIND_TYPE>>",
+      "Average": <<AVERAGE>>,
+      "SpeedUnit": "<<SPEED_UNIT>>",
+      "DownWindSensor": <<DOWNWIND_SENSOR>>,
+      "DownWindRange": <<DOWNWIND_RANGE>>,
+      "TempSensorType": "<<TEMP_SENSOR_TYPE>>",
+      "TempSensorData": <<TEMP_SENSOR_DATA>>,
+      "TempUnit": "°<<TEMP_UNIT>>"
+    },
+
+    "MeasuringValues": {
+      "DeviceTemperature": { "Value": <<DEVICE_TEMP>>, "Unit": "°<<TEMP_UNIT>>" },
+      "WindDirection": { "Value": <<WIND_DIR>>, "Unit": "°" },
+      "Resolution": { "Value": <<DIR_RESOLUTION>>, "Unit": "°" },
+      "WindSpeed": { "Value": <<WIND_SPEED>>, "Unit": "<<SPEED_UNIT>>" },
+      "DownWindSpeed": { "Value": <<DOWNWIND_SPEED>>, "Unit": "<<SPEED_UNIT>>" },
+      "Sensor1": { "Value": <<SENSOR1>>, "Unit": "bin" },
+      "Sensor2": { "Value": <<SENSOR2>>, "Unit": "bin" },
+      "MagFluxDensity": { "Value": <<MAG_FLUX_DENSITY>>, "Unit": "mT" },
+      "MagnetSensor": { "Value": <<MAGNET_SENSOR>>, "Unit": "°" },
+      "PulseCounter": { "Value": <<PULSE_COUNTER>>, "Unit": "n" },
+      "Time1": { "Value": <<TIME1>>, "Unit": "ms" },
+      "Time2": { "Value": <<TIME2>>, "Unit": "ms" },
+      "RotationSpeed": { "Value": <<ROTATION_SPEED>>, "Unit": "rps" },
+      "AirTemperature": { "Value": <<AIR_TEMP>>, "Unit": "°<<TEMP_UNIT>>" },
+      "AirPressure": { "Value": <<AIR_PRESSURE>>, "Unit": "mbar" },
+      "AirHumidity": { "Value": <<AIR_HUMIDITY>>, "Unit": "%" },
+      "Dewpoint": { "Value": <<DEWPOINT>>, "Unit": "°<<TEMP_UNIT>>" },
+      "Altitude": { "Value": <<ALTITUDE>>, "Unit": "m" }
+    },
+
+    "NMEAValues": {
+      "String1": "<<NMEA_STRING1>>",
+      "String2": "<<NMEA_STRING2>>",
+      "String3": "<<NMEA_STRING3>>",
+      "String4": "<<NMEA_STRING4>>",
+      "String5": "<<NMEA_STRING5>>"
     }
-  },
-  "NetworkParameter": {
-    "WLANClientSSID": "<<WLAN_CLIENT_SSID>>",
-    "WLANClientIP": "<<WLAN_CLIENT_IP>>",
-    "ConnectionQuality": {"Value": <<CONNECTION_QUALITY>>, "Unit": "%"},
-    "WLANServerSSID": "<<WLAN_SERVER_SSID>>",
-    "WLANServerIP": "<<WLAN_SERVER_IP>>",
-    "ServerMode": <<SERVER_MODE>>,
-    "ServerHostName": "<<SERVER_HOSTNAME>>"
-  },
-  "DisplaySettings": {
-    "Skin": <<SKIN>>,
-    "InstrumentType": "<<INSTRUMENT_TYPE>>",
-    "InstrumentSize": "<<INSTRUMENT_SIZE>>"
-  },
-  "DeviceSettings": {
-    "SerialDebugMode": <<SERIAL_DEBUG_MODE>>,
-    "SerialSpeed": <<SERIAL_SPEED>>,
-    "SensorID": <<SENSOR_ID>>,
-    "SensorType": "<<SENSOR_TYPE>>",
-    "SendWindData": <<SEND_WIND_DATA>>,
-    "WindType": "<<WIND_TYPE>>",
-    "Average": <<AVERAGE>>,
-    "SpeedUnit": "<<SPEED_UNIT>>",
-    "DownWindSensor": <<DOWNWIND_SENSOR>>,
-    "DownWindRange": <<DOWNWIND_RANGE>>,
-    "TempSensorType": "<<TEMP_SENSOR_TYPE>>",
-    "TempSensorData": <<TEMP_SENSOR_DATA>>,
-    "TempUnit": "°<<TEMP_UNIT>>"
-  },
-  "MeasuringValues": {
-    "DeviceTemperature": {"Value": <<DEVICE_TEMP>>, "Unit": "°<<TEMP_UNIT>>"},
-    "WindDirection": {"Value": <<WIND_DIR>>, "Unit": "°"},
-    "Resolution": {"Value": <<DIR_RESOLUTION>>, "Unit": "°"},
-    "WindSpeed": {"Value": <<WIND_SPEED>>, "Unit": "<<SPEED_UNIT>>"},
-    "DownWindSpeed": {"Value": <<DOWNWIND_SPEED>>, "Unit": "<<SPEED_UNIT>>"},
-    "Sensor1": {"Value": <<SENSOR1>>, "Unit": "bin"},
-    "Sensor2": {"Value": <<SENSOR2>>, "Unit": "bin"},
-    "MagFluxDensity": {"Value": <<MAG_FLUX_DENSITY>>, "Unit": "mT"},
-    "MagnetSensor": {"Value": <<MAGNET_SENSOR>>, "Unit": "°"},
-    "PulseCounter": {"Value": <<PULSE_COUNTER>>, "Unit": "n"},
-    "Time1": {"Value": <<TIME1>>, "Unit": "ms"},
-    "Time2": {"Value": <<TIME2>>, "Unit": "ms"},
-    "RotationSpeed": {"Value": <<ROTATION_SPEED>>, "Unit": "rps"},
-    "AirTemperature": {"Value": <<AIR_TEMP>>, "Unit": "°<<TEMP_UNIT>>"},
-    "AirPressure": {"Value": <<AIR_PRESSURE>>, "Unit": "mbar"},
-    "AirHumidity": {"Value": <<AIR_HUMIDITY>>, "Unit": "%"},
-    "Dewpoint": {"Value": <<DEWPOINT>>, "Unit": "°<<TEMP_UNIT>>"},
-    "Altitude": {"Value": <<ALTITUDE>>, "Unit": "m"}
-  },
-  "NMEAValues": {
-    "String1": "<<NMEA_STRING1>>",
-    "String2": "<<NMEA_STRING2>>",
-    "String3": "<<NMEA_STRING3>>",
-    "String4": "<<NMEA_STRING4>>",
-    "String5": "<<NMEA_STRING5>>"
   }
 }
 )json";

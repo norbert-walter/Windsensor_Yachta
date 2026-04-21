@@ -162,7 +162,6 @@ String JS()
  content +=F( "};");
 
  content +=F( "function read_json() {");
-//content +=F( "xmlhttp.open('GET', 'http://192.168.4.1/json', true);");
  content +=F( "xmlhttp.open('GET', '/json', true);");
  content +=F( "xmlhttp.send();");
  content +=F( "}");
