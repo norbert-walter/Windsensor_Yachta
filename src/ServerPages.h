@@ -133,7 +133,7 @@ httpServer.on("/json", []() {
   httpServer.send(200, "application/json", content);
 });
 
-httpServer.on("/device_description", []() {
+httpServer.on("/add", []() {
   String content = DeviceDescription();
   httpServer.sendHeader("Access-Control-Allow-Origin", "*"); // Needs new browser for CORS (Cross Origin Resource Sharing)
   httpServer.sendHeader("Cache-Control", "no-cache");
