@@ -22,6 +22,6 @@ echo "Compiling Firmware"
 platformio run
 
 # Copy all bin files in docs folder for online flash tool
-echo "Copy bin files"
-cp $projectpath/firmware.bin $toolpath/firmware.bin
-echo "Successfully executed"
+# echo "Copy bin files"
+# cp $projectpath/firmware.bin $toolpath/firmware.bin
+# echo "Successfully executed"
