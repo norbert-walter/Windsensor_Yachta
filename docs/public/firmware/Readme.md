@@ -1,4 +1,4 @@
-**20240322 firmware_V1.21.wsb `(stable)`**
+**20260813 firmware_V1.21.wsb `(stable)`**
 
 * Add ADD - AI Device Description in the firmware
 * You can use the AI ​​to understand the device
