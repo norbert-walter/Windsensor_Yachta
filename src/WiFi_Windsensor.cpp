@@ -60,7 +60,9 @@ configData actconf;         // Actual configuration, Global variable
 #include "main_html.h"      // Main webpage
 #include "settings_html.h"  // Settings webpage
 #include "firmware_html.h"  // Firmware update webpage
-#include "add_html.h"       // Device self description as JSON for external AI models
+#include "add.h"            // Device self description as JSON for external AI models
+#include "add_json.h"       // ADD JSON as native JSON 
+#include "add_html.h"       // ADD JSON as webpage 
 #include "json_html.h"      // JSON webpage
 #include "json2_html.h"     // JSON webpage for Hall sensor signals
 #include "MD5_html.h"       // JavaScript crypt password with MD5

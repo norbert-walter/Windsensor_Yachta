@@ -1,3 +1,14 @@
+**20240322 firmware_V1.21.wsb `(stable)`**
+
+* Add ADD - AI Device Description in the firmware
+* You can use the AI ​​to understand the device
+* You can use the AI ​​to create dashboards
+* Show the AI ​​one of the endpoints:
+* JSON endpoint: https://Internet-IP/add
+* HTML endpoint: https://Internet-IP/add.html
+* Ask the AI: ​What I can do with the device?
+* Refer the documentation for details: https://github.com/norbert-walter/ai-device-description-add/tree/main/real_hardware
+
 **20240322 firmware_V1.20.wsb `(stable)`**
 
 * Change the network address from 192.168.4.1 to 192.168.5.1
